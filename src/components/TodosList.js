@@ -1,4 +1,3 @@
-// ...
 const TodosList = ({ todosProps, setTodos }) => {
     return (
       <ul>
