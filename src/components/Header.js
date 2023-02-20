@@ -1,13 +1,14 @@
+import styles from "@/styles/Header.module.css";
+
 const Header = () => {
+    const headerStyle = {
+      padding: '20px 0',
+      lineHeight: '1.5em',
+      color: '#aeadad',
+      textAlign: 'center',
+    };
     return (
-      <header
-        style={{
-          padding: '20px 0',
-          lineHeight: '1.5em',
-          color: '#aeadad',
-          textAlign: 'center',
-        }}
-      >
+      <header style={headerStyle}>
         {/* ... */}
       </header>
     );
