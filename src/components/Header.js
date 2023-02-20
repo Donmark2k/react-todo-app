@@ -8,7 +8,7 @@ const Header = () => {
       textAlign: 'center',
     };
     return (
-      <header style={headerStyle}>
+        <header style={headerStyle} className={styles.header}>
         {/* ... */}
       </header>
     );

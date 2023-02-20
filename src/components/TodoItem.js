@@ -1,7 +1,11 @@
+import styles from '@/styles/TodoItem.module.css';
+
 const TodoItem = ({ itemProp, handleChange, delTodo }) => {
 
     return (
-        <li>
+        <li className={styles.item}>
+              <div className={styles.content}>
+
         <input
           type="checkbox"
           checked={itemProp.completed}
@@ -10,6 +14,7 @@ const TodoItem = ({ itemProp, handleChange, delTodo }) => {
         />
       <button onClick={() => delTodo(itemProp.id)}>Delete</button>
         {itemProp.title}
+        </div>
       </li>
     );
   };
