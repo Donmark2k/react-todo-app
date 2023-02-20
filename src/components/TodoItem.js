@@ -1,7 +1,12 @@
 import styles from '../styles/TodoItem.module.css';
+import { useState } from 'react';
 
 const TodoItem = ({ itemProp, handleChange, delTodo }) => {
+    const [editing, setEditing] = useState(false);
 
+    const handleEditing = () => {
+        setEditing(true);
+      };
     return (
         <li className={styles.item}>
               <div className={styles.content}>
@@ -12,11 +17,16 @@ const TodoItem = ({ itemProp, handleChange, delTodo }) => {
           onChange={() => handleChange(itemProp.id)}
 
         />
-                <button>Edit</button>
+        <button onClick={handleEditing}>Edit</button>
 
       <button onClick={() => delTodo(itemProp.id)}>Delete</button>
         {itemProp.title}
         </div>
+        <input
+      type="text"
+      value={itemProp.title}
+      className={styles.textInput}
+    />
       </li>
     );
   };
