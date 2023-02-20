@@ -1,4 +1,4 @@
-const TodosList = ({ todosProps, setTodos }) => {
+const TodosList = ({ todosProps, handleChange, delTodo }) => {
     return (
       <ul>
         {todosProps.map((todo) => (

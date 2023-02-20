@@ -33,7 +33,8 @@ const TodosLogic = () => {
   return (
     <div>
       <InputTodo />
-      <TodosList todosProps={todos} handleChange={handleChange} />
+      <TodosList todosProps={todos} handleChange={handleChange}
+      delTodo={delTodo} />
     </div>
   );
 };
