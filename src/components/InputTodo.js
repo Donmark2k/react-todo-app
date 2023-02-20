@@ -1,3 +1,5 @@
+import styles from "../styles/InputTodo.module.css";
+
 import { useState } from 'react';
 const InputTodo = ({ addTodoItem }) => {
     const [title, setTitle] = useState('');
@@ -20,17 +22,17 @@ const InputTodo = ({ addTodoItem }) => {
   };
   return (
       <>
-    <form onSubmit={handleSubmit} className="form-container">
+    <form onSubmit={handleSubmit} className={styles.formContainer}>
       <input
         type="text"
         placeholder="Add Todo..."
         value={title}
         onChange={handleChange}
-        className="input-text"
+        className={styles.inputText}
       />
-      <button className="input-submit">Submit</button>
+      <button className={styles.inputSubmit}>Submit</button>
     </form>
-    <span className="submit-warning">{message}</span>
+    <span className={styles.submitWarning}>{message}</span>
 </>
   );
 };

@@ -1,4 +1,4 @@
-import styles from '@/styles/TodoItem.module.css';
+import styles from '../styles/TodoItem.module.css';
 
 const TodoItem = ({ itemProp, handleChange, delTodo }) => {
 
@@ -12,6 +12,8 @@ const TodoItem = ({ itemProp, handleChange, delTodo }) => {
           onChange={() => handleChange(itemProp.id)}
 
         />
+                <button>Edit</button>
+
       <button onClick={() => delTodo(itemProp.id)}>Delete</button>
         {itemProp.title}
         </div>
