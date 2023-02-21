@@ -1,16 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { MdClose } from 'react-icons/md';
 import { FiMenu } from 'react-icons/fi';
-import styles from '../styles/TodoItem.module.css';
 
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-
+  const ref = useRef();
+  useEffect(() => {
+    const handler = (event) => {
+      if (
+        navbarOpen &&
+        ref.current &&
+        !ref.current.contains(event.target)
+      ) {
+        setNavbarOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener('mousedown', handler);
+    };
+  }, [navbarOpen]);
   return (
-    <nav className="navbar">
-      <button
+    <nav ref={ref} className="navbar">
+    <button
         type="button"
         className="toggle"
         onClick={() => setNavbarOpen((prev) => !prev)}
