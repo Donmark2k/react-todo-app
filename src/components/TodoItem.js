@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { AiFillEdit } from 'react-icons/ai';
+import PropTypes from 'prop-types';
 import styles from '../styles/TodoItem.module.css';
 
 const TodoItem = ({
@@ -29,25 +30,38 @@ const TodoItem = ({
     opacity: 0.4,
     textDecoration: 'line-through',
   };
-  
+  TodoItem.propTypes = {
+    itemProp: PropTypes.func.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    delTodo: PropTypes.func.isRequired,
+    setUpdate: PropTypes.func.isRequired,
+    completed: PropTypes.string.isRequired,
+    title: PropTypes.func.isRequired,
+    id: PropTypes.func.isRequired,
+  };
   return (
     <li className={styles.item}>
       <div className={styles.content} style={viewMode}>
-
         <input
           type="checkbox"
-          checked={itemProp.completed}alignSelf
+          checked={itemProp.completed}
           onChange={() => handleChange(itemProp.id)}
         />
         <span style={itemProp.completed ? completedStyle : null}>
           {itemProp.title}
         </span>
-        <button onClick={handleEditing} className={styles.editInput}>
+        <button
+          type="button"
+          onClick={handleEditing}
+          className={styles.editInput}
+        >
           {' '}
-          <AiFillEdit style={{ color: '#5e5e5e', fontSize: '16px'}} />
+          <AiFillEdit style={{ color: '#5e5e5e', fontSize: '16px' }} />
         </button>
 
-        <button onClick={() => delTodo(itemProp.id)}><FaTrash style={{color: '#5e5e5e', fontSize: '16px' }} /></button>
+        <button type="button" onClick={() => delTodo(itemProp.id)}>
+          <FaTrash style={{ color: '#5e5e5e', fontSize: '16px' }} />
+        </button>
       </div>
       <input
         type="text"
