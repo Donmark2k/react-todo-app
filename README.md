@@ -114,6 +114,7 @@ After you're finished please remove all the comments and instructions!
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
+- Live demo link will appear when ready
 
 <!-- > Add a link to your deployed project. -->
 
