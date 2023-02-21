@@ -1,30 +1,49 @@
 import React, { useState } from 'react';
+import { MdClose } from 'react-icons/md';
+import { FiMenu } from 'react-icons/fi';
+import styles from '../styles/TodoItem.module.css';
+
 
 const Navbar = () => {
-    const [navbarOpen, setNavbarOpen] = useState(false);
-    useEffect(() => {
-        document.title = `Current state value: ${dropdown}`;
-      }, [dropdown]);
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
 
-    return (
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>
-          <button onClick={() => setDropdown(!dropdown)}>
-            Services <span>&#8595;</span>
+  return (
+    <nav className="navbar">
+      <button
+        type="button"
+        className="toggle"
+        onClick={() => setNavbarOpen((prev) => !prev)}
+      >
+        {navbarOpen ? (
+          <MdClose style={{ width: '32px', height: '32px' }} />
+        ) : (
+          <FiMenu
+            style={{
+              width: '32px',
+              height: '32px',
+            }}
+          />
+        )}
+      </button>
+      <ul className={`menu-nav${navbarOpen ? ' show-menu' : ''}`}>
+        <li>Home</li>
+        <li>About</li>
+        <li>
+          <button type="button" onClick={() => setDropdown(!dropdown)}>
+            Services
+            {' '}
+            <span>&#8595;</span>
           </button>
           {dropdown && (
             <ul>
               <li>Design</li>
               <li>Development</li>
             </ul>
-            )}
-          </li>
-        </ul>
-      </nav>
-    );
-  };
-  export default Navbar;
-  
+          )}
+        </li>
+      </ul>
+    </nav>
+  );
+};
+export default Navbar;
