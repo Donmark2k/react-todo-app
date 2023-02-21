@@ -1,11 +1,3 @@
-.wrapper {
-    width: 100%;
-    padding: 8rem 20px 3rem;
-  }
-  .todos {
-    max-width: 580px;
-    margin: 0 auto;
-  }
   .formContainer {
     display: flex;
     border-radius: calc(0.1 * 100px);

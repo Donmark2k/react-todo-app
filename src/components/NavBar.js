@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { MdClose } from 'react-icons/md';
 import { FiMenu } from 'react-icons/fi';
 
-
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
@@ -10,9 +9,9 @@ const Navbar = () => {
   useEffect(() => {
     const handler = (event) => {
       if (
-        navbarOpen &&
-        ref.current &&
-        !ref.current.contains(event.target)
+        navbarOpen
+        && ref.current
+        && !ref.current.contains(event.target)
       ) {
         setNavbarOpen(false);
       }
@@ -25,7 +24,7 @@ const Navbar = () => {
   }, [navbarOpen]);
   return (
     <nav ref={ref} className="navbar">
-    <button
+      <button
         type="button"
         className="toggle"
         onClick={() => setNavbarOpen((prev) => !prev)}

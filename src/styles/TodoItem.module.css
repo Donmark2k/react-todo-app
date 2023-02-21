@@ -4,6 +4,7 @@
     padding: 14px 25px;
     border-bottom: 1px solid #fff;
     background: #f0efef;
+    text-align: left;
   }
   .content {
     display: flex;
@@ -29,5 +30,7 @@
     padding: 10px;
     border: 1px solid #dfdfdf;
     outline: none;
+    text-align: left;
+    
   }
   
